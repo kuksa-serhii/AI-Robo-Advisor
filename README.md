@@ -134,78 +134,97 @@ For educational and research purposes only. This is not financial advice. Past p
 
 **Built with ❤️ using Python, Streamlit, and OpenAI**
 
-DEFAULT Asset Universe and Data Selection
-Asset Universe Definition
-In this project, a diversified investment asset universe was constructed using exchange-traded funds (ETFs) that represent the major global asset classes. The universe includes instruments from the following categories:
+## DEFAULT Asset Universe and Data Selection
 
-Equities (U.S. and Global Stocks)
-SPY – U.S. large-cap equities (S&P 500)
-VTI – Total U.S. stock market
-QQQ – U.S. technology and growth stocks (Nasdaq-100)
-IWM – U.S. small-cap stocks (Russell 2000)
-VT – Global equity market
-EFA – Developed markets outside the U.S.
-EEM – Emerging markets equities
-XLV – U.S. healthcare sector
-XLF – U.S. financial sector
-XLY – U.S. consumer discretionary sector
-Real Assets and Alternatives
-VNQ – U.S. real estate investment trusts (REITs)
-GLD – Gold ETF as a defensive asset
-Fixed Income (Bonds)
-AGG – U.S. aggregate bond market
-BND – Broad U.S. bond market
-TLT – Long-term U.S. Treasury bonds
-LQD – Investment-grade corporate bonds
-HYG – High-yield corporate bonds
-TIP – Treasury Inflation-Protected Securities (TIPS)
-BNDX – International bonds (USD-hedged)
-Cash-like Instruments
-SHY – Short-term U.S. Treasury bonds (1–3 years)
+### Asset Universe Definition
+
+In this project, a diversified **investment asset universe** was constructed using exchange-traded funds (ETFs) that represent the major global asset classes. The universe includes instruments from the following categories:
+
+### Equities (U.S. and Global Stocks)
+- SPY – U.S. large-cap equities (S&P 500)  
+- VTI – Total U.S. stock market  
+- QQQ – U.S. technology and growth stocks (Nasdaq-100)  
+- IWM – U.S. small-cap stocks (Russell 2000)  
+- VT – Global equity market  
+- EFA – Developed markets outside the U.S.  
+- EEM – Emerging markets equities  
+- XLV – U.S. healthcare sector  
+- XLF – U.S. financial sector  
+- XLY – U.S. consumer discretionary sector  
+
+### Real Assets and Alternatives
+- VNQ – U.S. real estate investment trusts (REITs)  
+- GLD – Gold ETF as a defensive asset  
+
+### Fixed Income (Bonds)
+- AGG – U.S. aggregate bond market  
+- BND – Broad U.S. bond market  
+- TLT – Long-term U.S. Treasury bonds  
+- LQD – Investment-grade corporate bonds  
+- HYG – High-yield corporate bonds  
+- TIP – Treasury Inflation-Protected Securities (TIPS)  
+- BNDX – International bonds (USD-hedged)  
+
+### Cash-like Instruments
+- SHY – Short-term U.S. Treasury bonds (1–3 years)  
+
 Due to data availability constraints in the execution environment, the final implemented asset universe consists of the subset of assets for which sufficient historical data was successfully retrieved.
 
-Rationale for Asset Universe Selection
-The asset universe was designed to support the construction of a balanced investment portfolio and was selected based on the following key principles:
+---
 
-1. Coverage of All Major Asset Classes
+## Rationale for Asset Universe Selection
+
+The asset universe was designed to support the construction of a **balanced investment portfolio** and was selected based on the following key principles:
+
+### 1. Coverage of All Major Asset Classes
 The universe includes equities, bonds, real estate, commodities (gold), and short-duration Treasury instruments. This allows the robo-advisor to construct portfolios with controlled risk exposure rather than focusing only on equities.
 
-2. Geographic Diversification
+### 2. Geographic Diversification
 The portfolio includes U.S., developed international, emerging market, and global equity exposures. This reduces country-specific risk and increases portfolio stability.
 
-3. Sector Diversification
+### 3. Sector Diversification
 Sector-specific ETFs (healthcare, financials, consumer discretionary) enable exposure to different parts of the economic cycle and allow for sector-based portfolio adjustments.
 
-4. Bond Risk Structure
+### 4. Bond Risk Structure
 The fixed income segment includes short-duration, long-duration, inflation-protected, investment-grade, high-yield, and international bonds. This enables effective management of both interest rate and credit risk.
 
-5. High Liquidity and Real-World Accessibility
+### 5. High Liquidity and Real-World Accessibility
 All selected instruments are highly liquid ETFs traded on major U.S. exchanges and are accessible to retail investors. This ensures that the robo-advisor reflects realistic market conditions.
 
-Historical Data Period Selection
+---
+
+## Historical Data Period Selection
+
 The historical price data was collected over the following period:
 
-January 2015 – Current Date (2025)
+**January 2015 – Current Date (2025)**  
 This corresponds to approximately 10 years of daily market data.
 
-Reasons for Selecting This Time Horizon
-Multiple Market Cycles
+### Reasons for Selecting This Time Horizon
+
+1. **Multiple Market Cycles**  
 The selected period includes several key market regimes:
-2015–2016: post-crisis volatility
-2018: equity market correction
-2020: COVID-19 market crash
-2022: inflation and interest rate shock
-2023–2025: post-crisis recovery and AI-driven growth
+- 2015–2016: post-crisis volatility  
+- 2018: equity market correction  
+- 2020: COVID-19 market crash  
+- 2022: inflation and interest rate shock  
+- 2023–2025: post-crisis recovery and AI-driven growth  
+
 This ensures that asset behavior is evaluated under diverse market conditions.
 
-Sufficient Data for Risk Estimation
+2. **Sufficient Data for Risk Estimation**  
 A 10-year daily dataset provides statistically robust inputs for estimating:
-expected returns
-volatility
-covariance matrix
-Sharpe ratio
-drawdowns
-Relevance to Modern Market Structure
+- expected returns  
+- volatility  
+- covariance matrix  
+- Sharpe ratio  
+- drawdowns  
+
+3. **Relevance to Modern Market Structure**  
 Data prior to 2010 reflects a different macroeconomic regime and ETF market structure. The 2015–2025 period provides a better balance between data depth and modern market relevance.
-Data Source and Processing
+
+---
+
+## Data Source and Processing
+
 Historical adjusted price data for all assets was obtained from Yahoo Finance during the data preparation stage and stored locally as CSV files. All subsequent portfolio optimization, backtesting, and rebalancing procedures are performed exclusively using the locally stored dataset to ensure full reproducibility and independence from external data sources.
